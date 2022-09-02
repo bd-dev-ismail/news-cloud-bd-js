@@ -1,2 +1,13 @@
-/* primary color #FA4B35 heading color/bg #121212 text color #8e8d8d */
 
+.news-primary{
+    color: #FA4B35 !important;
+}
+.news-secondary{
+    color: #121212;
+}
+.news-text{
+    color: #8e8d8d;
+}
+.nav-item a{
+    font-size: 18px;
+}
