@@ -10,7 +10,7 @@ const displayCategories = (categories) =>{
     // console.log(categories);
     const categoryContainer = document.getElementById("category-container");
     categories.forEach(category => {
-        console.log(category);
+        // console.log(category);
         const li = document.createElement('li');
         li.classList.add("nav-item");
         li.innerHTML = `
@@ -43,29 +43,37 @@ const displayNews = showNews =>{
               </div>
               <div class="col-md-10">
                 <div class="card-body">
-                  <h5 class="card-title">${news.title}</h5>
-                  <p class="card-text">${news.details.slice(0, 250)}</p>
-
-                  <div class="d-flex">
-                    <div class="author-img pe-3">
-                        <img style="width: 40px; height: 40px;" class="rounded-pill" src="${news.author.img ? news.author.img : 'No Image Found'}"> 
+                  <h5 class="card-title pb-2">${news.title}</h5>
+                  <p class="card-text py-2">${news.details.slice(0, 350)}</p>
+                  <div class="d-flex flex-sm-row align-items-center justify-content-between mt-lg-5">
+                     <div class="d-flex">
+                        <div class="author-img pe-3">
+                            <img style="width: 40px; height: 40px;" class="rounded-pill" src="${
+                              news.author.img
+                                ? news.author.img
+                                : "No Image Found"
+                            }"> 
+                        </div>
+                        <div class="auhtor-info"> 
+                            <h6>${
+                              news.author.name
+                                ? news.author.name
+                                : "No Name Found"
+                            }</h6>
+                            <p>${
+                              news.author.published_date
+                                ? news.author.published_date
+                                : "No Date Found"
+                            }</p>
+                        </div>
+                      </div>
+                      <div class="view pe-2">
+                        <h6>${news.total_view ? news.total_view : 'No View Found'}</h6>
+                      </div>
+                      <div>
+                        <button class="btn btn-primary pe-2">Click</button>
+                      </div>
                     </div>
-                    <div class="auhtor-info"> 
-                        <h6>${news.author.name ? news.author.name : 'No Name Found'}</h6>
-                        <p>${news.author.published_date ? news.author.published_date : 'No Date Found'}</p>
-                    </div>
-                  </div>
-                    <div class="d-flex align-items-center justify-content-around">
-      <div class="pe-2">
-        <img src="images/Avatar.png" alt="">
-      </div>
-      <div class="view pe-2">
-        <h6>1.5M</h6>
-      </div>
-      <div>
-        <button class="btn btn-primary pe-2">Click</button>
-      </div>
-    </div>
                 </div>
               </div>
             </div>
