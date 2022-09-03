@@ -7,12 +7,9 @@ const loadCategories = () =>{
       .catch((error) => console.log(error));
 };
 const displayCategories = (categories) =>{
-    console.log(categories)
+    // console.log(categories)
     const categoryContainer = document.getElementById("category-container");
-    const itemFound = document.getElementById("item-found");
-    categories.forEach(c =>{
-      console.log(c)
-    })
+    
     categories.forEach(category => {
         // console.log(category);
         const li = document.createElement('li');
@@ -32,8 +29,9 @@ const loadNews = (id) =>{
   loadSpinner(true);
 };
 const displayNews = showNews =>{
-  // console.log(showNews);
-  
+  console.log(showNews);
+  const itemFound = document.getElementById("item-found");
+  itemFound.innerHTML = `${showNews.length} Items Found On this Category`;
   const newsContainer = document.getElementById("news-container");
   newsContainer.textContent = "";
   //ekta div naw no found data liko shownews er length check koro .then d-none add/rm koro
