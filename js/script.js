@@ -30,7 +30,6 @@ const loadNews = (id) =>{
 };
 
 const displayNews = showNews =>{
-  console.log(showNews);
   const itemFound = document.getElementById("item-found");
   
   itemFound.innerHTML = `${showNews.length} Items Found On this Category`;
@@ -48,11 +47,12 @@ const displayNews = showNews =>{
   });
 
   showNews.forEach((news) => {
+    console.log(news)
     const createDiv = document.createElement("div");
     createDiv.classList.add("col");
     createDiv.innerHTML = `
         <div class="card mb-3 p-lg-4 p-1 p-md-1" onclick="loadDetails('${
-          news.category_id
+          news._id
         }')" data-bs-toggle="modal" data-bs-target="#newsModal">
             <div class="row g-0">
               <div class="col-md-2 text-center">
@@ -65,7 +65,10 @@ const displayNews = showNews =>{
                   <h5 class="card-title pb-2 text-center text-md-center text-lg-start">${
                     news.title
                   }</h5>
-                  <p class="card-text py-2 ">${news.details.slice(0,300)}...</p>
+                  <p class="card-text py-2 ">${news.details.slice(
+                    0,
+                    350
+                  )} ...</p>
                   <div class="d-flex flex-column flex-sm-column flex-lg-row align-items-center justify-content-between mt-lg-5">
                      <div class="d-flex py-2">
                         <div class="author-img pe-3">
@@ -109,28 +112,41 @@ const displayNews = showNews =>{
 };
 
 const loadDetails = id =>{
-  
-  const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+  const url = `https://openapi.programming-hero.com/api/news/${id}`;
   fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayDetails(data.data[0]));
+    .then(res => res.json())
+    .then(data => displayDetails(data.data[0]))
+    .catch(error => console.log(error));
 };
 const displayDetails = details =>{
   console.log(details);
   const modalTitle = document.getElementById("newsModalLabel");
   modalTitle.innerText = details.title;
-  const modalCotainer = document.getElementById("modal-container");
-  modalCotainer.innerHTML = `
+    const modalCotainer = document.getElementById("modal-container");
+    modalCotainer.innerHTML = `
   <div class="text-center">
   <img src="${details.thumbnail_url}">
   </div>
-  <h4>Author Name: ${details.author.name ? details.author.name : 'No Name Found'}</h4>
-  <p>Publish Date: ${details.published_date ? details.published_date : 'No Date Found'}</p>
-  <p>Total Views: ${details.total_view ? details.total_view : 'No View Found'}</p>
-  <p>Badge: ${details.rating.badge ? details.rating.badge : 'No Badge Found'}</p>
-  <p>Rating: ${details.rating.number ? details.rating.number : 'No Rating Found'}</p>
-  <p>Detalis:   ${details.details ? details.details.slice(0, 150) : 'No Details Found'}...</p>
+  <h4>Author Name: ${
+    details.author.name ? details.author.name : "No Name Found"
+  }</h4>
+  <p>Publish Date: ${
+    details.published_date ? details.published_date : "No Date Found"
+  }</p>
+  <p>Total Views: ${
+    details.total_view ? details.total_view : "No View Found"
+  }</p>
+  <p>Badge: ${
+    details.rating.badge ? details.rating.badge : "No Badge Found"
+  }</p>
+  <p>Rating: ${
+    details.rating.number ? details.rating.number : "No Rating Found"
+  }</p>
+  <p>Detalis:   ${
+    details.details ? details.details.slice(0, 150) : "No Details Found"
+  }...</p>
   `;
+
 };
 //Spinner
 const loadSpinner = (isLoading) =>{
