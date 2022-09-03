@@ -34,19 +34,19 @@ const displayNews = showNews =>{
         const createDiv = document.createElement('div');
         createDiv.classList.add('col');
         createDiv.innerHTML = `
-        <div class="card mb-3 " style="padding: 20px;">
+        <div class="card mb-3 p-lg-4 p-1 p-md-1" >
             <div class="row g-0">
-              <div class="col-md-2">
+              <div class="col-md-2 text-center">
                 <img src="${
                   news.thumbnail_url
                 }" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-10">
                 <div class="card-body">
-                  <h5 class="card-title pb-2">${news.title}</h5>
+                  <h5 class="card-title pb-2 text-center text-md-center text-lg-start">${news.title}</h5>
                   <p class="card-text py-2">${news.details.slice(0, 350)}</p>
-                  <div class="d-flex flex-sm-row align-items-center justify-content-between mt-lg-5">
-                     <div class="d-flex">
+                  <div class="d-flex flex-column flex-sm-column flex-lg-row align-items-center justify-content-between mt-lg-5">
+                     <div class="d-flex py-2">
                         <div class="author-img pe-3">
                             <img style="width: 40px; height: 40px;" class="rounded-pill" src="${
                               news.author.img
@@ -67,11 +67,11 @@ const displayNews = showNews =>{
                             }</p>
                         </div>
                       </div>
-                      <div class="view pe-2">
-                        <h6>${news.total_view ? news.total_view : 'No View Found'}</h6>
+                      <div class="view pe-2 py-2">
+                        <h6>Views: ${news.total_view ? news.total_view : 'No View Found'}</h6>
                       </div>
                       <div>
-                        <button class="btn btn-primary pe-2">Click</button>
+                        <button class="btn btn-primary pe-2 py-2">Read More</button>
                       </div>
                     </div>
                 </div>
