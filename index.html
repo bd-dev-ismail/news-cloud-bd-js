@@ -66,25 +66,19 @@
 
       <!-- Start Modal Section  -->
       <section id="modal-section">
-                  <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsModal">
-            Launch static backdrop modal
-          </button>
-
-        <!-- Modal -->
+          <!-- Modal -->
         <div class="modal fade" id="newsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="newsModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="newsModalLabel"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                ...
+              <div id="modal-container" class="modal-body">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                
               </div>
             </div>
           </div>
