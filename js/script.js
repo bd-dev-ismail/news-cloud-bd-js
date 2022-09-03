@@ -28,22 +28,21 @@ const loadNews = (id) =>{
   //start spinner.
   loadSpinner(true);
 };
+
 const displayNews = showNews =>{
   console.log(showNews);
   const itemFound = document.getElementById("item-found");
+  
   itemFound.innerHTML = `${showNews.length} Items Found On this Category`;
   const newsContainer = document.getElementById("news-container");
   newsContainer.textContent = "";
-  //ekta div naw no found data liko shownews er length check koro .then d-none add/rm koro
   const noNewsFound = document.getElementById("no-news-found");
   if(showNews.length === 0){
     noNewsFound.classList.remove('d-none');
   }else{
     noNewsFound.classList.add('d-none');
-  }
+  };
   showNews.forEach((news) => {
-    // console.log(news);
-    
     const createDiv = document.createElement("div");
     createDiv.classList.add("col");
     createDiv.innerHTML = `
@@ -132,5 +131,6 @@ const loadSpinner = (isLoading) =>{
   else{
     spinner.classList.add('d-none');
   }
-}
+};
+loadNews("08");
 loadCategories();
