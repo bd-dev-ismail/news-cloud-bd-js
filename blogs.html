@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog Pages</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- Custom Css  -->
     <link rel="stylesheet" href="style/styles.css">
+    <!-- Favicon  -->
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
   </head>
   <body class="container">
         <header>
@@ -37,7 +40,91 @@
         <hr class="border border-danger border-1 opacity-50">
 <!-- End Nav Code -->
     </header>
-
+    <!-- Start Acodium section   -->
+    <section>
+              <!-- Start Frequently Question  -->
+      <section id="question">
+        <div class="container my-5">
+          <div class="courses-info text-center web-text mb-3">
+            <h2 class="fw-bold display-6">Frequently Asked Questions</h2>
+            <p>Here some question & answerd for Bouns Marks</p>
+          </div>
+          <div class="accordium-controll m-auto my-5" style="max-width: 800px;">
+                        <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button web-text-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    What are different between var, let & const?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    var, let and const keywords are used to declare variables in Javascript. While var is the oldest keyword for declaring variables from its inception, let and const are introduced in ES6.let and var can be reassigned to a new value while const cannot be reassigned.
+                    <li>var is function-scoped.</li>
+                    <li>let and const are block-scoped(any code within {} braces).</li>
+                    <li>
+                        var is always hoisted to the top of their respective scope.
+                    </li>
+                    <li>
+                        let and const is also hoisted but will throw an error if the variable is used before the declaration. It is a little complicated and we will discuss it in a separate article dedicated to this specific topic.
+                    </li>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed web-text-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    What are different between Arrow function & Regullar function?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Regular functions created using function declarations or expressions are 'constructible' and 'callable'. Since regular functions are constructible, they can be called using the 'new' keyword. However, the arrow functions are only 'callable' and not constructible.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed web-text-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    What is map, forEach, filter & find in javascript?
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <li>
+                        map() executes the same code on every element in an array and returns a new array with the updated elements.
+                    </li>
+                    <li>
+                        forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.
+                    </li>
+                    <li>
+                        The filter() method is used to filters all the elements and returns the element that matches and the element that do not match are removed.
+                    </li>
+                    <li>
+                        The find() method is used to find all the descendant elements of the selected element. It finds the element in the DOM tree by traversing through the root to leaf.
+                    </li>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed web-text-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Why do we use Template String in JavaScript?
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Frequently Question  -->
+    </section>
+    <!-- End Acodium section   -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
