@@ -54,21 +54,28 @@
         </ul>
       </section>
       <!-- End Categories Section -->
+      <section>
+        <h4  id="item-found"></h4>
+      </section>
       <!-- Spinner  -->
       <section>
-        <div >
-          <div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+        
+          <div id="spinner" class="d-flex justify-content-center align-items-center d-none" style="height: 50vh;">
         <div class="spinner-border text-danger" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-        </div>
+        
       </section>
       <!-- Start News Section  -->
       <section id="news-section" class="py-5">
         <div id="news-container" class="row row-cols-1 row-cols-lg-1 row-cols-md-2 g-4 ">
           <!-- <div class="col">
            </div> -->
+        </div>
+        
+        <div id="no-news-found" class="d-none">
+          <h3 class="text-danger text-center">No News Found</h3>
         </div>
       </section>
       <!-- End News Section  -->

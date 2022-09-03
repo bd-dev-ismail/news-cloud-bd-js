@@ -7,8 +7,12 @@ const loadCategories = () =>{
       .catch((error) => console.log(error));
 };
 const displayCategories = (categories) =>{
-    // console.log(categories);
+    console.log(categories)
     const categoryContainer = document.getElementById("category-container");
+    const itemFound = document.getElementById("item-found");
+    categories.forEach(c =>{
+      console.log(c)
+    })
     categories.forEach(category => {
         // console.log(category);
         const li = document.createElement('li');
@@ -20,21 +24,34 @@ const displayCategories = (categories) =>{
     });
 };
 const loadNews = (id) =>{
-    const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => displayNews(data.data));
+  const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayNews(data.data));
+  //start spinner.
+  loadSpinner(true);
 };
 const displayNews = showNews =>{
-    const newsContainer = document.getElementById("news-container");
-    newsContainer.textContent = '';
-    //ekta div naw no found data liko shownews er length check koro .then d-none add/rm koro
-    showNews.forEach(news => {
-        console.log(news);
-        const createDiv = document.createElement('div');
-        createDiv.classList.add('col');
-        createDiv.innerHTML = `
-        <div class="card mb-3 p-lg-4 p-1 p-md-1" onclick="loadDetails('${news.category_id}')" data-bs-toggle="modal" data-bs-target="#newsModal">
+  // console.log(showNews);
+  
+  const newsContainer = document.getElementById("news-container");
+  newsContainer.textContent = "";
+  //ekta div naw no found data liko shownews er length check koro .then d-none add/rm koro
+  const noNewsFound = document.getElementById("no-news-found");
+  if(showNews.length === 0){
+    noNewsFound.classList.remove('d-none');
+  }else{
+    noNewsFound.classList.add('d-none');
+  }
+  showNews.forEach((news) => {
+    // console.log(news);
+    
+    const createDiv = document.createElement("div");
+    createDiv.classList.add("col");
+    createDiv.innerHTML = `
+        <div class="card mb-3 p-lg-4 p-1 p-md-1" onclick="loadDetails('${
+          news.category_id
+        }')" data-bs-toggle="modal" data-bs-target="#newsModal">
             <div class="row g-0">
               <div class="col-md-2 text-center">
                 <img src="${
@@ -83,17 +100,21 @@ const displayNews = showNews =>{
             </div>
         </div>
         `;
-        newsContainer.appendChild(createDiv);
-    });
+    newsContainer.appendChild(createDiv);
+  });
+  //Stop spinner
+  loadSpinner(false);
 };
+
 const loadDetails = id =>{
+  
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayDetails(data.data[0]));
 };
 const displayDetails = details =>{
-  console.log(details);
+  // console.log(details);
   const modalTitle = document.getElementById("newsModalLabel");
   modalTitle.innerText = details.title;
   const modalCotainer = document.getElementById("modal-container");
@@ -103,5 +124,15 @@ const displayDetails = details =>{
   <p>Badge: ${details.rating.badge ? details.rating.badge : 'No Badge Found'}</p>
   <p>Rating: ${details.rating.number ? details.rating.number : 'No Rating Found'}</p>
   `;
+};
+//Spinner
+const loadSpinner = (isLoading) =>{
+  const spinner = document.getElementById("spinner");
+  if(isLoading){
+    spinner.classList.remove('d-none')
+  }
+  else{
+    spinner.classList.add('d-none');
+  }
 }
 loadCategories();
