@@ -27,3 +27,8 @@
 .news-footer{
     height: 22vh;
 }
+footer{
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}

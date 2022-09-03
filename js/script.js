@@ -42,6 +42,14 @@ const displayNews = showNews =>{
   }else{
     noNewsFound.classList.add('d-none');
   };
+  const sortData = showNews.sort((a, b) =>{
+    return a.total_view - b.total_view;
+  });
+  const sortArr = showNews.sort((a, b) =>{
+    return b.total_view - a.total_view;
+  });
+  console.log(sortArr)
+
   showNews.forEach((news) => {
     const createDiv = document.createElement("div");
     createDiv.classList.add("col");
@@ -60,7 +68,7 @@ const displayNews = showNews =>{
                   <h5 class="card-title pb-2 text-center text-md-center text-lg-start">${
                     news.title
                   }</h5>
-                  <p class="card-text py-2">${news.details.slice(0, 250)}</p>
+                  <p class="card-text py-2 ">${news.details.slice(0,300)}...</p>
                   <div class="d-flex flex-column flex-sm-column flex-lg-row align-items-center justify-content-between mt-lg-5">
                      <div class="d-flex py-2">
                         <div class="author-img pe-3">
@@ -111,11 +119,14 @@ const loadDetails = id =>{
     .then((data) => displayDetails(data.data[0]));
 };
 const displayDetails = details =>{
-  // console.log(details);
+  console.log(details);
   const modalTitle = document.getElementById("newsModalLabel");
   modalTitle.innerText = details.title;
   const modalCotainer = document.getElementById("modal-container");
   modalCotainer.innerHTML = `
+  <div class="text-center">
+  <img src="${details.thumbnail_url}">
+  </div>
   <h4>Author Name: ${details.author.name ? details.author.name : 'No Name Found'}</h4>
   <p>Publish Date: ${details.published_date ? details.published_date : 'No Date Found'}</p>
   <p>Badge: ${details.rating.badge ? details.rating.badge : 'No Badge Found'}</p>
