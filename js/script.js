@@ -42,13 +42,10 @@ const displayNews = showNews =>{
   }else{
     noNewsFound.classList.add('d-none');
   };
-  const sortData = showNews.sort((a, b) =>{
-    return a.total_view - b.total_view;
-  });
+  //Sorting
   const sortArr = showNews.sort((a, b) =>{
     return b.total_view - a.total_view;
   });
-  console.log(sortArr)
 
   showNews.forEach((news) => {
     const createDiv = document.createElement("div");
@@ -129,8 +126,10 @@ const displayDetails = details =>{
   </div>
   <h4>Author Name: ${details.author.name ? details.author.name : 'No Name Found'}</h4>
   <p>Publish Date: ${details.published_date ? details.published_date : 'No Date Found'}</p>
+  <p>Total Views: ${details.total_view ? details.total_view : 'No View Found'}</p>
   <p>Badge: ${details.rating.badge ? details.rating.badge : 'No Badge Found'}</p>
   <p>Rating: ${details.rating.number ? details.rating.number : 'No Rating Found'}</p>
+  <p>Detalis:   ${details.details ? details.details.slice(0, 150) : 'No Details Found'}...</p>
   `;
 };
 //Spinner
