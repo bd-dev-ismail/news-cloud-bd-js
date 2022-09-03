@@ -8,3 +8,19 @@
 .news-text{
     color: #8e8d8d;
 }
+.news-btn{
+    background-color: #FA4B35;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #fff;
+}
+.news-btn:hover{
+    background-color: #8e8d8d;
+}
+#category-container li a{
+    color: #858585;
+}
+#category-container li a:hover{
+    color: #FA4B35;
+}

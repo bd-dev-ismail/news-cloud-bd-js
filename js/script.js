@@ -89,7 +89,7 @@ const displayNews = showNews =>{
                         }</h6>
                       </div>
                       <div>
-                        <button class="btn btn-primary pe-2 py-2">Read More</button>
+                        <button class="btn news-btn pe-2 py-2">Read More</button>
                       </div>
                     </div>
                 </div>
