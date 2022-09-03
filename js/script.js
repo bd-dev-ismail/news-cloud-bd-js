@@ -46,7 +46,7 @@ const displayNews = showNews =>{
                   <h5 class="card-title pb-2 text-center text-md-center text-lg-start">${
                     news.title
                   }</h5>
-                  <p class="card-text py-2">${news.details.slice(0, 350)}</p>
+                  <p class="card-text py-2">${news.details.slice(0, 250)}</p>
                   <div class="d-flex flex-column flex-sm-column flex-lg-row align-items-center justify-content-between mt-lg-5">
                      <div class="d-flex py-2">
                         <div class="author-img pe-3">
